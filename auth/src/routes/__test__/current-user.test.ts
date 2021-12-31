@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { app } from '../../app';
 
-jest.useFakeTimers('legacy');
+//jest.useFakeTimers('legacy');
 
 it('responds with details about the current user', async () => {
     const cookie = await signin();
@@ -12,7 +12,7 @@ it('responds with details about the current user', async () => {
         .send()
         .expect(200);
 
-    console.log(response.body);
+    //console.log(response.body);
     expect(response.body.currentUser.email).toEqual('test@test.com');
 });
 
