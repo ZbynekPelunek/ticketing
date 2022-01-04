@@ -15,6 +15,8 @@ spec:
       containers:
       - name: auth
         image: zbynekp/auth
+        ports:
+        - containerPort: 8080
         env:
           - name: MONGO_URI
             value: 'mongodb://auth-mongo-srv:27017/auth'
@@ -29,10 +31,10 @@ kind: Service
 metadata:
   name: auth-srv
 spec:
+  type: ClusterIP
   selector:
     app: auth
   ports:
   - name: auth
-    protocol: TCP
-    port: 3000
-    targetPort: 3000
+    port: 80
+    targetPort: 8080

@@ -15,6 +15,8 @@ spec:
       containers:
       - name: tickets
         image: zbynekp/tickets
+        ports:
+        - containerPort: 8080
         env:
           - name: NATS_CLIENT_ID
             valueFrom:
@@ -37,10 +39,11 @@ kind: Service
 metadata:
   name: tickets-srv
 spec:
+  type: ClusterIP
   selector:
     app: tickets
   ports:
   - name: tickets
     protocol: TCP
-    port: 3000
-    targetPort: 3000
+    port: 80
+    targetPort: 8080

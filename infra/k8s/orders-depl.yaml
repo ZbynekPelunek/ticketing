@@ -15,6 +15,8 @@ spec:
       containers:
       - name: orders
         image: zbynekp/orders
+        ports:
+        - containerPort: 8080
         env:
           - name: NATS_CLIENT_ID
             valueFrom:
@@ -37,10 +39,10 @@ kind: Service
 metadata:
   name: orders-srv
 spec:
+  type: ClusterIP
   selector:
     app: orders
   ports:
   - name: orders
-    protocol: TCP
-    port: 3000
-    targetPort: 3000
+    port: 80
+    targetPort: 8080
