@@ -15,6 +15,8 @@ spec:
       containers:
       - name: payments
         image: zbynekp/payments
+        ports:
+        - containerPort: 8080
         env:
           - name: NATS_CLIENT_ID
             valueFrom:
@@ -42,10 +44,10 @@ kind: Service
 metadata:
   name: payments-srv
 spec:
+  type: ClusterIP
   selector:
     app: payments
   ports:
   - name: payments
-    protocol: TCP
-    port: 3000
-    targetPort: 3000
+    port: 80
+    targetPort: 8080
