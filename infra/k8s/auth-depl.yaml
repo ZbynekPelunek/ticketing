@@ -15,8 +15,6 @@ spec:
       containers:
       - name: auth
         image: zbynekp/auth
-        ports:
-        - containerPort: 8080
         env:
           - name: MONGO_URI
             value: 'mongodb://auth-mongo-srv:27017/auth'
@@ -36,5 +34,5 @@ spec:
     app: auth
   ports:
   - name: auth
-    port: 80
-    targetPort: 8080
+    port: 3000
+    targetPort: 3000

@@ -15,8 +15,6 @@ spec:
       containers:
       - name: payments
         image: zbynekp/payments
-        ports:
-        - containerPort: 8080
         env:
           - name: NATS_CLIENT_ID
             valueFrom:
@@ -49,5 +47,5 @@ spec:
     app: payments
   ports:
   - name: payments
-    port: 80
-    targetPort: 8080
+    port: 3000
+    targetPort: 3000

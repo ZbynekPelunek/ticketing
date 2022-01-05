@@ -15,8 +15,6 @@ spec:
       containers:
       - name: tickets
         image: zbynekp/tickets
-        ports:
-        - containerPort: 8080
         env:
           - name: NATS_CLIENT_ID
             valueFrom:
@@ -45,5 +43,5 @@ spec:
   ports:
   - name: tickets
     protocol: TCP
-    port: 80
-    targetPort: 8080
+    port: 3000
+    targetPort: 3000
