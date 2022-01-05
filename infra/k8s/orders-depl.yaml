@@ -15,8 +15,6 @@ spec:
       containers:
       - name: orders
         image: zbynekp/orders
-        ports:
-        - containerPort: 8080
         env:
           - name: NATS_CLIENT_ID
             valueFrom:
@@ -44,5 +42,5 @@ spec:
     app: orders
   ports:
   - name: orders
-    port: 80
-    targetPort: 8080
+    port: 3000
+    targetPort: 3000

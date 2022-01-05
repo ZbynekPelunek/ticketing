@@ -15,8 +15,6 @@ spec:
       containers:
       - name: expiration
         image: zbynekp/expiration
-        ports:
-        - containerPort: 8080
         env:
           - name: NATS_CLIENT_ID
             valueFrom:
